@@ -20,6 +20,11 @@
 - [x] activate the virtual environment to run the `app.py`
 
 - [ ] ftp connection successful
-- [x] add configuration `etc/vsftpd.conf`
-    - [x] force_local_logins_ssl=NO
-    - [x] force_local_data_ssl=NO
+- [ ] add configuration `etc/vsftpd.conf`
+    - [ ] force_local_logins_ssl=NO
+    - [ ] force_local_data_ssl=NO
+
+- [x] unregister unix distro in WSL (Ubuntu)
+- [x] reinstall again Ubuntu, install `vsftpd`, add `ftpuser`, configuration `/etc/vsftpd.conf`
+- [x] remove `userprofile\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu*` from local machine
+- [x] (optional) `userprofile\AppData\Local\Microsoft\Windows\WSL\`
