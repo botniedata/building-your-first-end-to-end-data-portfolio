@@ -20,3 +20,6 @@
 - [x] activate the virtual environment to run the `app.py`
 
 - [ ] ftp connection successful
+- [x] add configuration `etc/vsftpd.conf`
+    - [x] force_local_logins_ssl=NO
+    - [x] force_local_data_ssl=NO
