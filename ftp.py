@@ -23,9 +23,11 @@ def get_ftp() -> FTP_TLS:
 def upload_to_ftp(ftp: FTP_TLS, file_source: Path):
     with open(file_source, "rb") as fp:
         ftp.storbinary(f"STOR {file_source.name}", fp)
+        print("Uploading File Successfully Done!")
 
 def delete_file(file_source: str | Path):
     remove(file_source)
+    print("Deleting File Successfully Done!")
 
 def pipeline():
     
