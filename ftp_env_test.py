@@ -11,9 +11,13 @@ from ftplib import FTP_TLS
 def get_ftp() -> FTP_TLS:
     FTPHOST = environ["FTPHOST"]
     FTPUSER = environ["FTPUSER"]
-    FTPPASS = environ["FTPUSER"]
+    FTPPASS = environ["FTPPASS"]
 
+    # display ftp credentials from virtual environment
     print(f"the host is: {FTPHOST}")
+    print(f"the host is: {FTPUSER}")
+    print(f"the host is: {FTPPASS}")
+
 
     # return authentication of FTP
     # ftp = FTP_TLS(FTPHOST, FTPUSER, FTPPASS)
