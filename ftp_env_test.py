@@ -18,7 +18,6 @@ def get_ftp() -> FTP_TLS:
     print(f"the host is: {FTPUSER}")
     print(f"the host is: {FTPPASS}")
 
-
     # return authentication of FTP
     # ftp = FTP_TLS(FTPHOST, FTPUSER, FTPPASS)
     # ftp.prot_p()
