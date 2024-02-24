@@ -1,0 +1,24 @@
+{
+    "OFAC_SDN": {
+        "URL": "https://www.treasury.gov/ofac/downloads/sdn.csv",
+        "PARAMS": {
+            "names": [
+                "ent_num",
+                "sdn_Name",
+                "sdn_Type",
+                "program",
+                "title",
+                "call_sign",
+                "vess_type",
+                "tonnage",
+                "grt",
+                "vess_flag",
+                "vess_owner",
+                "remarks"
+            ],
+            "na_values": "-0- ",
+            "skipfooter": 1,
+            "engine": "python"
+        }
+    }
+}
