@@ -4,7 +4,7 @@ from ftplib import FTP_TLS
 ftphost = "localhost" # replace with your FTP ip address or just localhost
 ftpuser = "ftpuser" # replace with your FTP username
 ftppass = "ftpuser" # replace with your FTP password
-ftpport = 21
+ftpport = 21 # FTP Port
 
 # Login to FTP
 ftp = FTP_TLS()
