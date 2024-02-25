@@ -20,9 +20,11 @@ def get_ftp() -> FTP_TLS:
     return ftp
 
 # upload to ftp
-def upload_to_ftp(ftp: FTP_TLS, file_source: Path):
+def upload_to_ftp(ftp: FTP_TLS, file_source: Path, destination_directory: str):
     with open(file_source, "rb") as fp:
-        ftp.storbinary(f"STOR {file_source.name}", fp)
+        # specify the destination directory in the STOR command
+        destination_path = f"{destination_directory}/{file_source.name}"
+        ftp.storbinary(f"STOR {destination_path}", fp)
         print("Uploading File Successfully Done!")
 
 def delete_file(file_source: str | Path):
@@ -43,7 +45,7 @@ def pipeline():
         df = read_csv(source_config)
         df.to_csv(file_name, index=False)
 
-        upload_to_ftp(ftp, file_name)
+        upload_to_ftp(ftp, file_name, "/home/ftpuser/ftp")
 
         delete_file(file_name)
      

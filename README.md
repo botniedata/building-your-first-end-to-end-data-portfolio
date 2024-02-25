@@ -28,3 +28,15 @@
 - [x] reinstall again Ubuntu, install `vsftpd`, add `ftpuser`, configuration `/etc/vsftpd.conf`
 - [x] remove `userprofile\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu*` from local machine
 - [x] (optional) `userprofile\AppData\Local\Microsoft\Windows\WSL\`
+- [x] adds permission to ftpuser to create CSV file to `ftp` folder
+        - directory: `/home/ftpuser/ftp`
+- [ ] owner: `nobody`
+- [ ] group: `nogroup`
+- [ ] permission: `drwxr-xr-x` (read, write and execute for the owner, and read/excure for group and others)
+- [x] allow the FTP User `ftpuser` to upload files:
+    - [x] change owmership of the directory to `ftpuser`:
+        `sudo chown ftpuser:ftpuser /home/ftpuser/ftp`
+    - [x] add the ftpuser to the group `nogroup`:
+        `sudo usermod -aG nogroup ftpuser`
+    - [x] allow the owner (nobody) to write to the directory:
+        `sudo chmod u+w /home/ftpuser/ftp`
