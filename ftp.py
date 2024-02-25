@@ -1,3 +1,4 @@
+# import packages
 import sys
 import json
 import time
@@ -7,7 +8,7 @@ from os import environ, remove
 from pathlib import Path
 from ftplib import FTP_TLS
 
-# ftp credentials
+# ftp login credentials
 def get_ftp() -> FTP_TLS:
 
     FTPHOST = environ["FTPHOST"]
@@ -20,16 +21,17 @@ def get_ftp() -> FTP_TLS:
     return ftp
 
 # upload to ftp
-def upload_to_ftp(ftp: FTP_TLS, file_source: Path, destination_directory: str):
+def upload_to_ftp(ftp: FTP_TLS, file_source: Path):
     with open(file_source, "rb") as fp:
         # specify the destination directory in the STOR command
+        destination_directory = "/home/ftpuser/ftp"
         destination_path = f"{destination_directory}/{file_source.name}"
         ftp.storbinary(f"STOR {destination_path}", fp)
-        print("Uploading File Successfully Done!")
+        
 
 def delete_file(file_source: str | Path):
     remove(file_source)
-    print("Deleting File Successfully Done!")
+    
 
 def pipeline():
     
@@ -44,12 +46,14 @@ def pipeline():
         file_name = Path(source_name + ".CSV")
         df = read_csv(source_config)
         df.to_csv(file_name, index=False)
+        print(f"Downloading {file_name} File Successfully Done!")
 
-        upload_to_ftp(ftp, file_name, "/home/ftpuser/ftp")
+        upload_to_ftp(ftp, file_name)
+        print(f"Uploading {file_name} File to FTP Server Successfully Done!")
 
         delete_file(file_name)
+        print(f"Deleting {file_name} File Successfully Done!")
      
-
 def read_csv(config: dict) -> pd.DataFrame:
     url = config["URL"]
     params = config["PARAMS"]
@@ -57,4 +61,9 @@ def read_csv(config: dict) -> pd.DataFrame:
 
 if __name__=="__main__":
 
-    pipeline()
+    # schedule pipeline
+    schedule.every().day.at("16:03").do(pipeline)
+
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
