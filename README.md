@@ -26,7 +26,7 @@
 ---
 
 ### Create FTP User
-- To create an FTP User
+- To create an FTP User <br>
     `sudo adduser ftpuser`
 
 --- 
@@ -51,6 +51,7 @@
 
 ### Add `write` permission for the user `ftpuser`
 - Using `chmod` to tadd write permission for the owner of the directory `/home/ftpuser/fpt`.
+
     `sudo chmod u+w /home/ftpuser/ftp`
 
 ---
@@ -104,7 +105,7 @@
     rsa_cert_file=/etc/ssl/private/vsftpd.pem
     rsa_private_key_file=/etc/ssl/private/vsftpd.pem
     ```
-    
+
 ---
 
 ### Restart vsftpd
