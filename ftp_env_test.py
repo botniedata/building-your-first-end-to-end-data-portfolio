@@ -12,11 +12,13 @@ def get_ftp() -> FTP_TLS:
     FTPHOST = environ["FTPHOST"]
     FTPUSER = environ["FTPUSER"]
     FTPPASS = environ["FTPPASS"]
+    FTPPORT = environ["FTPPORT"]
 
     # display ftp credentials from virtual environment
     print(f"the host is: {FTPHOST}")
     print(f"the host is: {FTPUSER}")
     print(f"the host is: {FTPPASS}")
+    print(f"the host is: {FTPPORT}")
 
     # return authentication of FTP
     # ftp = FTP_TLS(FTPHOST, FTPUSER, FTPPASS)
