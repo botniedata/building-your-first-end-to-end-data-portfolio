@@ -23,6 +23,18 @@
 - [x] remove `userprofile\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu*` from local machine
 - [x] (optional) `userprofile\AppData\Local\Microsoft\Windows\WSL\`
 
+---
+
+### Create FTP User
+- To create an FTP User
+    `sudo adduser ftpuser`
+
+--- 
+
+### Create `ftp` directory for FTP User
+- To create an `/ftp` directory use the command:
+    `sudo mkdir /home/ftpuser/ftp`
+
 ---        
 
 ### Provide Ownership of Directory 
@@ -82,6 +94,17 @@
 - Generate a self-signed SSL certificate for FTP:
     `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem`
 
+---
+
+### To use SSL Certificate and Key Generated
+- To configure `vsftpd` configure `vsftptd.conf` file to use the SSL Certifcate and Key generated to `/etc/vsftpd.conf`.
+    `sudo nano /etc/vsftpd.conf`
+    - add the following configuration:
+    ```
+    rsa_cert_file=/etc/ssl/private/vsftpd.pem
+    rsa_private_key_file=/etc/ssl/private/vsftpd.pem
+    ```
+    
 ---
 
 ### Restart vsftpd
