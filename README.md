@@ -110,3 +110,32 @@
 
   <p>With either option, FTP Communication will be secured using encryption. Choose the option that best fits your requirements and network environment.</p>
   <p>Keep in mind that SFTP is more modern and secure choice, as it integrates with the existing SSH infrastructure</p>  
+
+---
+
+### Explicit FTPS
+1. Using FTP Client:
+    - Use an FTP Client that support `Explicit` FTPS
+2. Configure FTP Client:
+    - Enter FTP Host/Server Address, port (default is 21), and FTP User Credentials.
+    - Choose `FTPES` or `Explicit FTPS` as the encription method.
+3. Connect:
+    - Connect to the FTP Server. The client and erver will negotiate the secure connection.
+
+---
+
+### SFTP
+1. Using SFTP Client
+    - Use an SFTP Client
+2. Configure SFTP Client:
+    - Enter FTP Host/Server, port (default is 22), and FTP User Credentials.
+3. Connect:
+    - Connect to the FTP Server. SFTP operates over the SSH Protocol, and the connection will be secured.
+
+---
+
+- [x] For Explicit FTPS, default FTP Port is `21` and default FTPS port is usually `990`.
+- [x] For SFTP, the default SSH port is `22`.
+- [x] Certificate Verification: prompts you to accept the certificate. It's importatnt to verify the server's identity for security reasons.
+- [x] User Authentication: Ensure that FTP user credentials are valid for authentication.
+- [x] Firewall Considerations: If your have a firewall, make sure the necessary ports (FTP is `21` and FTPS is `990`, or SFTP is `21`)
