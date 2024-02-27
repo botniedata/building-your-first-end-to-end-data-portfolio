@@ -31,56 +31,56 @@
 
 --- 
 
-### Create `ftp` directory for FTP User
+### Create `ftp` directory for FTP User <br>
 - To create an `/ftp` directory use the command:
     `sudo mkdir /home/ftpuser/ftp`
 
 ---        
 
-### Provide Ownership of Directory 
+### Provide Ownership of Directory <br>
 - This command provides ownership of the directory `/home/<user>/ftp` to the user and group `ftpuser`
     `sudo chown ftpuser:ftpuser /home/ftpuser/ftp`
 
 ---
 
-### Add the user `ftpuser` to the `nogroup`
+### Add the user `ftpuser` to the `nogroup` <br>
 - Using `usermod` to add the user `ftpuser` to the `nogroup` group.
     `sudo usermod -aG nogroup ftpuser`
 
 ---
 
-### Add `write` permission for the user `ftpuser`
+### Add `write` permission for the user `ftpuser` <br>
 - Using `chmod` to tadd write permission for the owner of the directory `/home/ftpuser/fpt`.
 
     `sudo chmod u+w /home/ftpuser/ftp`
 
 ---
 
-### Check OpenSSL Version:
+### Check OpenSSL Version: <br>
 - Open terminal and run the command:
     `openssl version`
 
 ---    
 
-### Check OpenSSL Package Installation:
+### Check OpenSSL Package Installation: <br>
 - On Linux system you can use a package manager to check if OpenSSL is installed:
     `dpkg -l | grep openssl`
 
 ---    
 
-### Check OpenSSL Executable:
+### Check OpenSSL Executable: <br>
 - Check OpenSSL executable is present on your system. Typical location is `/usr/bin/openssl`:
     `ls /usr/bin/openssl`
 
 ---
 
-### Install vsftpd
+### Install vsftpd <br>
 - Ensure that `vsftpd` (Very Secure FTP Daemon) is installed on your system. You can use your package manager to install:
     `sudo apt-get install vsftpd`
 
 --- 
 
-### Configure vsftpd
+### Configure vsftpd <br>
 - Open the `vsftpd.conf` file in a text editor (usually located in `/etc/vsftpd.conf`).
     `sudo nano /etc/vsftpd.conf`
     - Ensure the following lines are set (uncomment):
@@ -91,13 +91,13 @@
     ``` 
 ---
 
-### Generate SSL Certificate:
+### Generate SSL Certificate: <br>
 - Generate a self-signed SSL certificate for FTP:
     `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem`
 
 ---
 
-### To use SSL Certificate and Key Generated
+### To use SSL Certificate and Key Generated <br>
 - To configure `vsftpd` configure `vsftptd.conf` file to use the SSL Certifcate and Key generated to `/etc/vsftpd.conf`.
     `sudo nano /etc/vsftpd.conf`
     - add the following configuration:
@@ -108,19 +108,19 @@
 
 ---
 
-### Restart vsftpd
+### Restart vsftpd <br>
 - Restart the vsftpd service
     `sudo service vsftpd restart`
 
 ---
 
-### Ensure SSH is Installed:
+### Ensure SSH is Installed: <br>
 - for Ubuntu
     `sudo apt-get install openssh-server`
 
 ---
 
-### Configure SSH for FTP User:
+### Configure SSH for FTP User: <br>
 - Ensure the FTP user has SSH access. Eidt the SSH Daemon configuration file.
     `sudo nano /etc/ssh/sshd_config`
     - Ensure the line is present (uncomment):
@@ -128,7 +128,7 @@
 
 ---
 
-### Restart SSH
+### Restart SSH <br>
 - restart the SSH Service
     `sudo service ssh restart`
 
@@ -137,7 +137,7 @@
 
 ---
 
-### Explicit FTPS
+### Explicit FTPS <br>
 1. Using FTP Client:
     - Use an FTP Client that support `Explicit` FTPS
 2. Configure FTP Client:
@@ -148,7 +148,7 @@
 
 ---
 
-### SFTP
+### SFTP <br>
 1. Using SFTP Client
     - Use an SFTP Client
 2. Configure SFTP Client:
