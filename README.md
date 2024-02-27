@@ -74,7 +74,7 @@
     ```ssl_enable=YES
     allow_anon_ssl=NO
     force_local_data_ssl=YES
-    force_local_logins_ssl=YES```
+    force_local_logins_ssl=YES
     ``` 
 ---
 
