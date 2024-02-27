@@ -31,59 +31,59 @@
 
 --- 
 
-### Create `ftp` directory for FTP User <br>
-- To create an `/ftp` directory use the command:
+### Create `ftp` directory for FTP User 
+- To create an `/ftp` directory use the command: <br>
     `sudo mkdir /home/ftpuser/ftp`
 
 ---        
 
-### Provide Ownership of Directory <br>
-- This command provides ownership of the directory `/home/<user>/ftp` to the user and group `ftpuser`
+### Provide Ownership of Directory
+- This command provides ownership of the directory `/home/<user>/ftp` to the user and group `ftpuser` <br>
     `sudo chown ftpuser:ftpuser /home/ftpuser/ftp`
 
 ---
 
-### Add the user `ftpuser` to the `nogroup` <br>
-- Using `usermod` to add the user `ftpuser` to the `nogroup` group.
+### Add the user `ftpuser` to the `nogroup`
+- Using `usermod` to add the user `ftpuser` to the `nogroup` group. <br>
     `sudo usermod -aG nogroup ftpuser`
 
 ---
 
-### Add `write` permission for the user `ftpuser` <br>
-- Using `chmod` to tadd write permission for the owner of the directory `/home/ftpuser/fpt`.
+### Add `write` permission for the user `ftpuser`
+- Using `chmod` to tadd write permission for the owner of the directory `/home/ftpuser/ftp`. <br>
 
     `sudo chmod u+w /home/ftpuser/ftp`
 
 ---
 
-### Check OpenSSL Version: <br>
-- Open terminal and run the command:
+### Check OpenSSL Version
+- Open terminal and run the command: <br>
     `openssl version`
 
 ---    
 
-### Check OpenSSL Package Installation: <br>
-- On Linux system you can use a package manager to check if OpenSSL is installed:
+### Check OpenSSL Package Installation:
+- On Linux system you can use a package manager to check if OpenSSL is installed: <br>
     `dpkg -l | grep openssl`
 
 ---    
 
-### Check OpenSSL Executable: <br>
-- Check OpenSSL executable is present on your system. Typical location is `/usr/bin/openssl`:
+### Check OpenSSL Executable
+- Check OpenSSL executable is present on your system. Typical location is `/usr/bin/openssl`: <br>
     `ls /usr/bin/openssl`
 
 ---
 
-### Install vsftpd <br>
-- Ensure that `vsftpd` (Very Secure FTP Daemon) is installed on your system. You can use your package manager to install:
+### Install vsftpd
+- Ensure that `vsftpd` (Very Secure FTP Daemon) is installed on your system. You can use your package manager to install: <br>
     `sudo apt-get install vsftpd`
 
 --- 
 
-### Configure vsftpd <br>
-- Open the `vsftpd.conf` file in a text editor (usually located in `/etc/vsftpd.conf`).
+### Configure vsftpd
+- Open the `vsftpd.conf` file in a text editor (usually located in `/etc/vsftpd.conf`). <br>
     `sudo nano /etc/vsftpd.conf`
-    - Ensure the following lines are set (uncomment):
+    - Ensure the following lines are set (uncomment): <br>
     ```ssl_enable=YES
     allow_anon_ssl=NO
     force_local_data_ssl=YES
@@ -91,14 +91,14 @@
     ``` 
 ---
 
-### Generate SSL Certificate: <br>
-- Generate a self-signed SSL certificate for FTP:
+### Generate SSL Certificate
+- Generate a self-signed SSL certificate for FTP: <br>
     `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem`
 
 ---
 
-### To use SSL Certificate and Key Generated <br>
-- To configure `vsftpd` configure `vsftptd.conf` file to use the SSL Certifcate and Key generated to `/etc/vsftpd.conf`.
+### To use SSL Certificate and Key Generated
+- To configure `vsftpd` configure `vsftptd.conf` file to use the SSL Certifcate and Key generated to `/etc/vsftpd.conf`. <br>
     `sudo nano /etc/vsftpd.conf`
     - add the following configuration:
     ```
@@ -108,28 +108,28 @@
 
 ---
 
-### Restart vsftpd <br>
-- Restart the vsftpd service
+### Restart vsftpd
+- Restart the vsftpd service <br>
     `sudo service vsftpd restart`
 
 ---
 
-### Ensure SSH is Installed: <br>
-- for Ubuntu
+### Ensure SSH is Installed
+- for Ubuntu <br>
     `sudo apt-get install openssh-server`
 
 ---
 
-### Configure SSH for FTP User: <br>
-- Ensure the FTP user has SSH access. Eidt the SSH Daemon configuration file.
+### Configure SSH for FTP User
+- Ensure the FTP user has SSH access. Eidt the SSH Daemon configuration file. <br>
     `sudo nano /etc/ssh/sshd_config`
-    - Ensure the line is present (uncomment):
+    - Ensure the line is present (uncomment): <br>
         `Subsystem sftp internal-sftp`
 
 ---
 
-### Restart SSH <br>
-- restart the SSH Service
+### Restart SSH
+- restart the SSH Service <br>
     `sudo service ssh restart`
 
   <p>With either option, FTP Communication will be secured using encryption. Choose the option that best fits your requirements and network environment.</p>
@@ -137,7 +137,7 @@
 
 ---
 
-### Explicit FTPS <br>
+### Explicit FTPS
 1. Using FTP Client:
     - Use an FTP Client that support `Explicit` FTPS
 2. Configure FTP Client:
