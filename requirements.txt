@@ -1,4 +1,4 @@
 pandas
 pyarrow
 schedule
-pyopenssl
+pysftp

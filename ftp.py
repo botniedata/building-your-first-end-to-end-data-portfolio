@@ -1,5 +1,6 @@
 # import packages
 from ftplib import FTP_TLS
+from ftplib import FTP
 import sys
 import json
 import time
@@ -16,6 +17,7 @@ def get_ftp() -> FTP_TLS:
     FTPPASS = environ["FTPPASS"]
 
     # return authentication of FTP
+    # ftp = FTP_TLS(FTPHOST, FTPUSER, FTPPASS)
     ftp = FTP_TLS(FTPHOST, FTPUSER, FTPPASS)
     ftp.prot_p()
     return ftp
