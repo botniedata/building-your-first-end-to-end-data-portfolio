@@ -22,7 +22,6 @@ def get_ftp() -> FTP_TLS:
     ftp = FTP_TLS(FTPHOST, FTPUSER, FTPPASS)
     # ssl TLSv1.2
     ftp.ssl_version = ssl.PROTOCOL_TLSv1_2
-    ftp.set_debuglevel(2)
     ftp.prot_p()
     # passive mode
     ftp.set_pasv(True)
@@ -48,6 +47,9 @@ def pipeline():
 
     ftp = get_ftp()  
 
+    # print debugs
+    ftp.set_debuglevel(2)
+
     # loop each config (source_name and params)
     for source_name, source_config in config.items():
         file_name = Path(source_name + ".CSV")
@@ -60,6 +62,8 @@ def pipeline():
 
         delete_file(file_name)
         print(f"Deleting {file_name} File Successfully Done!")
+    
+    ftp.quit()
      
 def read_csv(config: dict) -> pd.DataFrame:
     url = config["URL"]
@@ -68,11 +72,12 @@ def read_csv(config: dict) -> pd.DataFrame:
 
 if __name__=="__main__":
 
-    pipeline()
+    # pipeline()
 
-    # # schedule pipeline
-    # schedule.every().day.at("17:21").do(pipeline)
+    # schedule pipeline
+    schedule.every().day.at("15:21").do(pipeline)
 
-    # while True:
-    #     schedule.run_pending()
-    #     time.sleep(1)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
