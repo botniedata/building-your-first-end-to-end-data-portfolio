@@ -184,3 +184,6 @@ pasv_max_port=500000
 user_sub_token=$USER
 local_root=/home/$USER/ftp
 ```
+
+### Restart `vsftpd.conf` to have changes take effect
+    `sudo systemctl restart vsftpd.service`
