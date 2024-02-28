@@ -163,3 +163,24 @@
 - [x] Certificate Verification: prompts you to accept the certificate. It's importatnt to verify the server's identity for security reasons.
 - [x] User Authentication: Ensure that FTP user credentials are valid for authentication.
 - [x] Firewall Considerations: If your have a firewall, make sure the necessary ports (FTP is `21` and FTPS is `990`, or SFTP is `21`)
+
+### Configure Firewall (Optional)
+```
+sudo ufw allow 20/tcp
+sudo ufw allow 21/tcp
+sudo ufw allow 40000:50000/tcp
+sudo ufw allow 990/tcp
+sudo ufw allow openssh
+sudo ufw enable
+sudo ufw status
+```
+
+### Additional Configuration
+- `vsfptd.conf` additional configuration
+```
+force_dot_files=YES
+pasv_min_port=400000
+pasv_max_port=500000
+user_sub_token=$USER
+local_root=/home/$USER/ftp
+```

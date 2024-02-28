@@ -20,9 +20,11 @@ def get_ftp() -> FTP_TLS:
     # return authentication of FTP
     # ftp = FTP_TLS(FTPHOST, FTPUSER, FTPPASS)
     ftp = FTP_TLS(FTPHOST, FTPUSER, FTPPASS)
+    # ssl TLSv1.2
     ftp.ssl_version = ssl.PROTOCOL_TLSv1_2
     ftp.set_debuglevel(2)
     ftp.prot_p()
+    # passive mode
     ftp.set_pasv(True)
     return ftp
 
