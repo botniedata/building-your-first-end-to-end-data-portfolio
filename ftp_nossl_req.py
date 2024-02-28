@@ -72,12 +72,12 @@ def read_csv(config: dict) -> pd.DataFrame:
 
 if __name__=="__main__":
 
-    # pipeline()
+    pipeline()
 
     # schedule pipeline
-    schedule.every().day.at("15:21").do(pipeline)
+    # schedule.every().day.at("15:21").do(pipeline)
 
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    # while True:
+    #     schedule.run_pending()
+    #     time.sleep(1)
 
