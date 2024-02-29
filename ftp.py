@@ -65,6 +65,7 @@ if __name__=="__main__":                                    # distinguish betwee
 
     pipeline()                                              # calls function to execute the download, upload and deletion process.
 
+    # uncomment if you want schedule process of your pipeline    
     # # schedule pipeline
     # schedule.every().day.at("17:21").do(pipeline)         # how to schedule the pipeline() function to run daily on the specific military time using schedule library
                                                             # .every().day schduels the function to run every day and .at("hh:mm") execute time
