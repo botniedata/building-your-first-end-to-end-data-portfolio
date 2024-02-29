@@ -72,10 +72,10 @@
     force_local_logins_ssl=NO
     ``` 
     <br>
-    - `ssl_enable=YES` means transport Layer Security is enable to FTP server. <br>
-    - `allow_anon_ssl=NO` means users without username/password cannot use SSL for encription. <br>
-    - `force_local_data_ssl=NO` means whether SSL is required for local upload nad downloads, it's not mandatory for local data transfer. <br>
-    - `force_local_logins_ssl=NO` means whether SSL is required for local logins, it's not mandatory for local logins.
+    `ssl_enable=YES` means transport Layer Security is enable to FTP server. <br>
+    `allow_anon_ssl=NO` means users without username/password cannot use SSL for encription. <br>
+    `force_local_data_ssl=NO` means whether SSL is required for local upload nad downloads, it's not mandatory for local data transfer. <br>
+    `force_local_logins_ssl=NO` means whether SSL is required for local logins, it's not mandatory for local logins.
 ---
 ### Restart vsftpd services
 - restart the vsftpd service <br>
