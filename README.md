@@ -54,6 +54,44 @@
 
     `sudo chmod u+w /home/ftpuser/ftp`
 
+### Install vsftpd
+- Ensure that `vsftpd` (Very Secure FTP Daemon) is installed on your system. You can use your package manager to install: <br>
+    `sudo apt-get install vsftpd`
+
+--- 
+
+### Configure vsftpd
+- Open the `vsftpd.conf` file in a text editor (usually located in `/etc/vsftpd.conf`). <br>
+    `sudo nano /etc/vsftpd.conf`
+    - Ensure the following lines are set (uncomment): <br>
+    ```ssl_enable=YES
+    allow_anon_ssl=NO
+    force_local_data_ssl=YES
+    force_local_logins_ssl=YES
+    ``` 
+---
+
+### Restart SSH
+- restart the SSH Service <br>
+    `sudo service ssh restart`
+
+---
+
+### This Configuration is Optional
+### Generate SSL Certificate
+- Generate a self-signed SSL certificate for FTP: <br>
+    `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem`
+
+---
+
+### To use SSL Certificate and Key Generated
+- To configure `vsftpd` configure `vsftptd.conf` file to use the SSL Certifcate and Key generated to `/etc/vsftpd.conf`. <br>
+    `sudo nano /etc/vsftpd.conf`
+    - add the following configuration:
+    ```
+    rsa_cert_file=/etc/ssl/private/vsftpd.pem
+    rsa_private_key_file=/etc/ssl/private/vsftpd.pem
+    ```
 ---
 
 ### Check OpenSSL Version
@@ -74,39 +112,6 @@
 
 ---
 
-### Install vsftpd
-- Ensure that `vsftpd` (Very Secure FTP Daemon) is installed on your system. You can use your package manager to install: <br>
-    `sudo apt-get install vsftpd`
-
---- 
-
-### Configure vsftpd
-- Open the `vsftpd.conf` file in a text editor (usually located in `/etc/vsftpd.conf`). <br>
-    `sudo nano /etc/vsftpd.conf`
-    - Ensure the following lines are set (uncomment): <br>
-    ```ssl_enable=YES
-    allow_anon_ssl=NO
-    force_local_data_ssl=YES
-    force_local_logins_ssl=YES
-    ``` 
----
-
-### Generate SSL Certificate
-- Generate a self-signed SSL certificate for FTP: <br>
-    `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem`
-
----
-
-### To use SSL Certificate and Key Generated
-- To configure `vsftpd` configure `vsftptd.conf` file to use the SSL Certifcate and Key generated to `/etc/vsftpd.conf`. <br>
-    `sudo nano /etc/vsftpd.conf`
-    - add the following configuration:
-    ```
-    rsa_cert_file=/etc/ssl/private/vsftpd.pem
-    rsa_private_key_file=/etc/ssl/private/vsftpd.pem
-    ```
-
----
 
 ### Restart vsftpd
 - Restart the vsftpd service <br>

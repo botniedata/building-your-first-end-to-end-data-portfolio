@@ -16,9 +16,9 @@ def get_ftp() -> FTP_TLS:
 
     # display ftp credentials from virtual environment
     print(f"the host is: {FTPHOST}")
-    print(f"the host is: {FTPUSER}")
-    print(f"the host is: {FTPPASS}")
-    print(f"the host is: {FTPPORT}")
+    print(f"the username is: {FTPUSER}")
+    print(f"the password is: {FTPPASS}")
+    print(f"the port number is: {FTPPORT}")
 
     # return authentication of FTP
     # ftp = FTP_TLS(FTPHOST, FTPUSER, FTPPASS)
