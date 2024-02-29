@@ -27,7 +27,7 @@
 
 ---
 
-### Add `write` permission for the user `ftpuser`
+### Add `write` permission for the user `ftpuser` to `/home/ftpuser/ftp` directory
 - Using `chmod` to tadd write permission for the owner of the directory `/home/ftpuser/ftp`. <br>
 
     `sudo chmod u+w /home/ftpuser/ftp`
