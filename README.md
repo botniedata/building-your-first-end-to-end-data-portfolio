@@ -26,11 +26,17 @@
     `sudo usermod -aG nogroup ftpuser`
 
 ---
-
 ### Add `write` permission for the user `ftpuser` to `/home/ftpuser/ftp` directory
 - Using `chmod` to tadd write permission for the owner of the directory `/home/ftpuser/ftp`. <br>
 
     `sudo chmod u+w /home/ftpuser/ftp`
+
+--- 
+### Change user to Root Access (Administrative Access)
+- This may helpful to install packages without putting password everytime the installation required.
+    `sudo su - ` <br>
+    - apply the password to continue
+
 
 ### Install vsftpd
 - Ensure that `vsftpd` (Very Secure FTP Daemon) is installed on your system. You can use your package manager to install: <br>
