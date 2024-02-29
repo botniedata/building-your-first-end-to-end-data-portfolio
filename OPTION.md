@@ -29,6 +29,9 @@
 - To create an FTP User <br>
     `sudo adduser ftpuser`
 
+--- 
+
+### Create `ftp` directory for FTP User 
 - To create an `/ftp` directory use the command: <br>
     `sudo mkdir /home/ftpuser/ftp`
 
