@@ -58,6 +58,13 @@
     ``` 
 ---
 
-### Restart SSH
-- restart the SSH Service <br>
-    `sudo service ssh restart`
+### Restart vsftpd services
+- restart the vsftpd service <br>
+    `sudo systemctl restart vsftpd`
+
+---    
+
+### Checking vsftpd services
+- check the vsftpd service status <br>
+    `sudo systemctl status vsftpd` <br>
+    *Active: active (running) since Day YYYY-MM-DD hh:mm:ss +08; --h --min ago ...* 
