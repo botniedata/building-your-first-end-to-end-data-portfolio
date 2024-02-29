@@ -17,6 +17,13 @@
     `wsl --install -d Ubuntu` <br>
     *Wait for a few minutes to process the installation of distribution.*
 ---
+### Create Ubuntu Root Account
+- When you first install Ubuntu on WSL, it typically prompts you to create a new user and set a password during initial setup. This user is granded sudo privileges, allowing you to perform administrative tasks.
+---
+### Update and Upgrade Pacakges:
+- Open the Ubuntu terminal and run the following command to update the packages lists and upgrade installed packages (`-y` means yes to installation):
+    `sudo apt update && apt upgrade -y`
+---
 ### Create FTP User
 - To create an FTP User <br>
     `sudo adduser ftpuser`
@@ -58,11 +65,17 @@
 - Open the `vsftpd.conf` file in a text editor (usually located in `/etc/vsftpd.conf`). <br>
     `sudo nano /etc/vsftpd.conf`
     - Ensure the following lines are set (uncomment): <br>
-    ```ssl_enable=YES
+    ```
+    ssl_enable=YES
     allow_anon_ssl=NO
     force_local_data_ssl=NO
     force_local_logins_ssl=NO
     ``` 
+    <br>
+    - **ssl_enable=YES** means transport Layer Security is enable to FTP server. <br>
+    - **allow_anon_ssl=NO** means users without username/password cannot use SSL for encription. <br>
+    - **force_local_data_ssl=NO** means whether SSL is required for local upload nad downloads, it's not mandatory for local data transfer. <br>
+    - **force_local_logins_ssl=NO** means whether SSL is required for local logins, it's not mandatory for local logins.
 ---
 ### Restart vsftpd services
 - restart the vsftpd service <br>
