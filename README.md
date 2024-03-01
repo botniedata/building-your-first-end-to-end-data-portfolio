@@ -1,3 +1,11 @@
+### Version Control, Git and GitHub Repository
+- How to do version control, create a Git local repository and upload to GitHub Repository <br>
+    [Version Control Repository](https://github.com/botniedata/version-control)
+---
+### Create a FTP Server and get CSV File from web via Python Script
+- How to do version control, create a Git local repository and upload to GitHub Repository <br>
+    [From Web CSV files upload to FTP Server V1](https://github.com/botniedata/ftplib)
+---
 ### Enable Virtual Machine Platform for WSL
 - WSL2 requires the Virtual Marchine Platform feature. Ruth the following command in Powershell: <br>
     `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
