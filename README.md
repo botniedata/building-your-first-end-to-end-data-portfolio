@@ -94,3 +94,25 @@
 - check the vsftpd service status <br>
     `sudo systemctl status vsftpd` <br>
     *Active: active (running) since Day YYYY-MM-DD hh:mm:ss +08; --h --min ago ...* 
+---
+### Create a new project in Visual Studio 2022 for SQL Server Integration Services (SSIS)
+- Open the Visual Studio 2022 Software <br>
+    1. Choose `Create a new project`
+    2. Search for template `Integration Services Project`, name the project then press `Create` button on the lower right corner of the screen
+---
+### Create you `Control Flow` and `Data Flow`
+- To have a successful connection from FTP to Local PC and to PostgreSQL Database <br>
+     1. Click and drag the `FTP Task` from common lists to the `Package.dtsx - Control Flow Screen`
+     2. Doubl-click the `FTP Task` to edit and enter the follow details and press "Test Connection" and prompts as `Test connection succeeded`
+        - [x] FtpConnection, Click `new connection`
+                - Server settings:
+                    - Server Name: FTP Server IP Address
+                    - Server Port: `21`
+                - Credentials:
+                    - User name: <ftpuser-username>
+                    - Password: <ftpuser-password>
+                - Options:
+                    - Time-out (in seconds): `60`
+                    - Use passive mode: `unchecked`
+                    - Retries: `5`
+                    - Chunck size (in KB): `1`
