@@ -103,7 +103,7 @@
 ### Create you `Control Flow` and `Data Flow`
 - To have a successful connection from FTP to Local PC and to PostgreSQL Database <br>
      1. Click and drag the `FTP Task` from common lists to the `Package.dtsx - Control Flow Screen`
-     2. Doubl-click the `FTP Task` to edit and enter the follow details and press "Test Connection" and prompts as `Test connection succeeded`
+     2. Double-click the `FTP Task` to edit and enter the follow details and press "Test Connection" and prompts as `Test connection succeeded`
         - [x] FtpConnection, Click `new connection`
                 - Server settings:
                     - Server Name: FTP Server IP Address
@@ -116,3 +116,18 @@
                     - Use passive mode: `unchecked`
                     - Retries: `5`
                     - Chunck size (in KB): `1`
+    3. File Transfer Settings:
+        - [x] IsLocalPathVariable: `True`
+        - [x] LocalVariable: click <New Variables...>
+            - Container: Package
+            - Name: Variable
+            - Namespace: User
+            - Value Type: String
+            - Value <local-pc-directory>
+        - [x] Operations:
+            - Operation: Receive Files
+            -IsTrasferAscii: False
+        - [x] Remote Parameters:
+            - IsRemotePathVariable: True
+            -RemotePath: <ftp-upload-directory>
+    4. Click `Ok` to take effect the configuration
