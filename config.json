@@ -81,6 +81,7 @@
                 "ent_num",
                 "add_num",
                 "address",
+                "city_state_province_postal",
                 "country",
                 "add_remarks"
             ],
