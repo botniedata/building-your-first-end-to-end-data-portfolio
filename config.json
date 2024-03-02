@@ -4,8 +4,8 @@
         "PARAMS": {
             "names": [
                 "ent_num",
-                "sdn_Name",
-                "sdn_Type",
+                "sdn_name",
+                "sdn_type",
                 "program",
                 "title",
                 "call_sign",
@@ -28,7 +28,7 @@
                 "ent_num",
                 "add_num",
                 "address",
-                "city_state_province_postal",
+                "complete_address",
                 "country",
                 "add_remarks"
             ],
@@ -81,7 +81,7 @@
                 "ent_num",
                 "add_num",
                 "address",
-                "city_state_province_postal",
+                "complete_address",
                 "country",
                 "add_remarks"
             ],
