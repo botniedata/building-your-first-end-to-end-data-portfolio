@@ -72,3 +72,7 @@ if __name__=="__main__":                                    # distinguish betwee
     # while True:
     #     schedule.run_pending()                            # continiously checks for pending scheduled tasks
     #     time.sleep(1)                                     # creates a short delay of 1 second before checking again, preventing excessive CPU usage
+
+    # csv file source:
+    # https://ofac.treasury.gov/specially-designated-nationals-list-data-formats-data-schemas
+    # https://ofac.treasury.gov/consolidated-sanctions-list-non-sdn-lists
