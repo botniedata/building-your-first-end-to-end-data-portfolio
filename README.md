@@ -131,3 +131,10 @@
             - IsRemotePathVariable: True
             -RemotePath: <ftp-upload-directory>
     4. Click `Ok` to take effect the configuration
+---
+### FastAPI Web
+- [x] adds to requirements.txt fastapi
+- [x] adds to requirements.txt uvicorn[standard]
+- [x] pip installa -r requirements.txt runs for download and installation
+- [x] add main.py file for api
+- [x] run on environment `uvicorn main:app --reload`

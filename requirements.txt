@@ -2,3 +2,5 @@ pandas
 pyarrow
 schedule
 psycopg2
+fastapi
+uvicorn[standard]
